@@ -101,12 +101,14 @@ const Dex = () =>{
 
                 <Text style={styles.otherTXT}>Pokemon Name: {nomePKM}</Text>
                 <Text style={styles.otherTXT}>Pokemon ID: {id}</Text>
-
-                {
+                <View style={styles.fixTypes}>
+                   {
                     pkmType.map((type, i) => (
-                        <TypeIcon key={i} TypeText={type['type']['name']}/>
+                            <TypeIcon key={i} TypeText={type['type']['name']}/>
                     ))
-                }
+                } 
+                </View>
+                
             </View>
             
             <View style={styles.centerIMG}>
@@ -146,11 +148,10 @@ const Dex = () =>{
             </View>
 
             <View style={styles.centerTXT}>
-                <Text> ALL RIGHTS TO NINTENDO AND POKEMON COMPANY. THIS IS A SCHOOL PROJECT</Text>
-                <View>
-                    <Text>MADE BY:</Text>
-                    <Image style={styles.imgSize} source={{uri: 'https://avatars.githubusercontent.com/u/71941970?v=4'}}/>
-                    <Image/>
+                <Text style={styles.otherTXT}> ALL RIGHTS TO NINTENDO AND POKEMON COMPANY. THIS IS A SCHOOL PROJECT.</Text>
+                <View style={styles.centerWorkers}>
+                    <Image style={styles.workersLogo} source={{uri: 'https://avatars.githubusercontent.com/u/71941970?v=4'}}/>
+                    <Image style={styles.workersLogo} source={{uri: 'https://raw.githubusercontent.com/EnzoZKe/pudim/master/imgs/E_logo-2.png'}}/>
                 </View>
             </View>
         </View>
@@ -186,11 +187,16 @@ const styles = StyleSheet.create({
     imgSize: {
         width: 250,
         height: 250,
-        resizeMode: 'contain'
+        resizeMode: 'contain',
+        backgroundColor: '#211C6A',
+        marginBottom: 10,
+        borderRadius: 30,
+        padding: 10
     },
     centerAll: {
         backgroundColor: '#8B93FF',
-        flex: 1
+        flex: 1,
+        overflow: 'scroll'
     },
     centerTXT: {
         alignItems: 'center',
@@ -200,7 +206,12 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 20,
-        marginBottom: 15
+        marginBottom: 15,
+        backgroundColor: '#211C6A',
+        padding: 10,
+        borderBottomEndRadius: 30,
+        borderBottomStartRadius: 30,
+        color: '#C5FFF8'
     },
     textINP: {
         borderBottomWidth: 3,
@@ -215,7 +226,7 @@ const styles = StyleSheet.create({
     },
     otherTXT: {
         fontSize: 20,
-        fontWeight: 200,
+        color: '#001B79'
     },
     shiny: {
         backgroundColor: '#6420AA',
@@ -233,5 +244,16 @@ const styles = StyleSheet.create({
         borderColor: '#5E1675',
         textAlign: 'center',
         borderRadius: 20,
+    },
+    workersLogo: {
+        width: 100,
+        height: 100,
+        resizeMode: 'contain'
+    },
+    centerWorkers: {
+        flexDirection: 'row'
+    },
+    fixTypes: {
+        flexDirection: 'row'
     }
 })
